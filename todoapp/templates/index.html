@@ -18,6 +18,48 @@
 <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<style>
+	.container {
+		display: flex;
+		justify-content: center;
+		margin-top: 100px;
+
+	}
+	#inputArea {
+		color: #655DBB;
+		background-color: #BFACE2;
+		padding: 10px;
+        border-radius: 20px;
+	}
+	.row {
+		display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 300px; 
+	}
+	.col-sm {
+		padding: 20px;
+	}
+	.submit-button{
+		display: flex;
+		justify-content: center;
+	}
+	#inputState {
+		background-color: #94ADD7;
+		color: #655DBB;
+	}
+	option {
+		background-color: #BFACE2;
+	}
+	.form-control {
+		color: #655DBB;
+		background-color: black;
+	}
+	.form-control::placeholder {
+  		color: #FF0000; 
+	}
+
+</style>
 </head>
 <body>
 	
@@ -30,8 +72,8 @@
 			  <div class="col-sm">
 				<img src="../static/images/checklist.jpg">
 			  </div>
-			  <div class="col-sm">
-				<h1 class="font-weight-bold">To-Do</h1>
+			  <div class="col-sm" id="inputArea">
+				<h1 class="font-weight-bold" style="color: #655DBB;">To-Do</h1>
 				<form method="post" action="{% url 'add_todo' %}">
 					{% csrf_token %}
 					<div class="form-group">
@@ -42,10 +84,8 @@
 					  </div>
 					  <div class="form-group">
 						<label for="exampleFormControlTextarea1" class="font-weight-bold">Date</label>
-						<input class="form-control" id="exampleFormControlTextarea1" type="text" name="date">
-						<div class="input-group-append">
-							<span class="input-group-text" id="basic-addon2">yyyy-mm-dd</span>
-						  </div>
+						<input class="form-control" id="exampleFormControlTextarea1" placeholder="yyyy-mm-dd" type="text" name="date">
+				
 					  </div>
 					  <div class="form-group">
 						<label for="inputState" class="font-weight-bold">Priority</label>
@@ -55,12 +95,14 @@
 						  <option>Low</option>
 						</select>
 					  </div>
-					<button type="submit" class="btn btn-primary">Submit</button>
+					  <div class="submit-button">
+						<button type="submit" class="btn btn-success">Submit</button>
+					  </div>
+					
 				  </div>
 				  </form>
 			  </div>
 			</div>
-		  </div>
 	</div>
 	
     <script src="js/jquery.min.js"></script>
