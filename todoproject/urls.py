@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from todoapp import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns # new
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,3 +30,5 @@ urlpatterns = [
     path('edit_todo/<int:id>',views.edit_todo,name='edit_todo'),
     path('search',views.search,name='search'),
 ]
+urlpatterns += staticfiles_urlpatterns() # new
+
